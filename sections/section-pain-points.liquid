@@ -1,0 +1,166 @@
+<div class="pain-points-wrapper" style="--bg-color: {{ section.settings.bg_color }}; --text-color: {{ section.settings.text_color }};">
+  <div class="pain-points-container">
+    {%- if section.settings.pre_heading != blank -%}
+      <div class="pain-pre-heading">
+        {{ section.settings.pre_heading }}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="pain-heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="pain-points-list">
+        {%- for block in section.blocks -%}
+          <li class="pain-point-item" {{ block.shopify_attributes }}>
+            <span class="pain-point-icon">
+              {{ section.settings.icon | default: "✓" }}
+            </span>
+            <span class="pain-point-text">
+              {{ block.settings.point_text }}
+            </span>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if section.settings.post_text != blank -%}
+      <div class="pain-post-text">
+        {{ section.settings.post_text }}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .pain-points-wrapper {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 60px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .pain-points-container {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .pain-pre-heading {
+    text-align: center;
+    font-size: 1.1rem;
+    font-style: italic;
+    opacity: 0.8;
+    margin-bottom: 20px;
+  }
+  .pain-heading {
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+  .pain-points-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+  }
+  .pain-point-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    font-size: 1.125rem;
+    line-height: 1.5;
+  }
+  .pain-point-icon {
+    flex-shrink: 0;
+    margin-right: 12px;
+    font-weight: bold;
+    color: #111111;
+  }
+  .pain-point-text {
+    flex-grow: 1;
+  }
+  .pain-point-text strong {
+    font-weight: 700;
+  }
+  .pain-post-text {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 40px;
+    line-height: 1.4;
+  }
+  @media (min-width: 768px) {
+    .pain-points-wrapper {
+      padding: 80px 20px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Pain Points List",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#111111"
+    },
+    {
+      "type": "richtext",
+      "id": "pre_heading",
+      "label": "Pre Heading",
+      "default": "<p>If you've felt in control all day... and then lost it at night — I understand you.</p>"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "This is for you if:"
+    },
+    {
+      "type": "text",
+      "id": "icon",
+      "label": "List Icon",
+      "default": "✓",
+      "info": "Emoji or text symbol for bullets"
+    },
+    {
+      "type": "richtext",
+      "id": "post_text",
+      "label": "Post-List Text",
+      "default": "<p>Nothing complicated. Just what finally made a difference for me.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "list_item",
+      "name": "List Item",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "point_text",
+          "label": "Point Text",
+          "default": "<p>You feel in control during the day... but evenings are the hardest</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pain Points List",
+      "category": "High Conversion",
+      "blocks": [
+        { "type": "list_item" },
+        { "type": "list_item" },
+        { "type": "list_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

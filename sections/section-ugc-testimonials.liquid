@@ -1,0 +1,185 @@
+<div class="ugc-testimonials-wrapper" style="--bg-color: {{ section.settings.bg_color }}; --text-color: {{ section.settings.text_color }};">
+  <div class="ugc-container">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="ugc-heading">{{ section.settings.heading }} {{ section.settings.heading_emoji }}</h2>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="ugc-grid">
+        {%- for block in section.blocks -%}
+          <div class="ugc-card" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              <div class="ugc-card-img-wrapper">
+                {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'ugc-card-img' }}
+              </div>
+            {%- endif -%}
+            
+            <div class="ugc-card-content">
+              {%- if block.settings.quote != blank -%}
+                <div class="ugc-quote">
+                  "{{ block.settings.quote }}"
+                </div>
+              {%- endif -%}
+              
+              {%- if block.settings.author != blank -%}
+                <div class="ugc-author">
+                  — {{ block.settings.author }}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .ugc-testimonials-wrapper {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 80px 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .ugc-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .ugc-heading {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 50px;
+    letter-spacing: -0.02em;
+    padding: 0 10px;
+  }
+  .ugc-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .ugc-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+  }
+  .ugc-card-img-wrapper {
+    width: 100%;
+    position: relative;
+    padding-top: 60%; /* Aspect ratio 5:3 approx */
+    background: #f0f0f0;
+  }
+  .ugc-card-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .ugc-card-content {
+    padding: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .ugc-quote {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    color: #333333;
+    font-style: italic;
+  }
+  .ugc-author {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #111111;
+  }
+  
+  @media (min-width: 600px) {
+    .ugc-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 900px) {
+    .ugc-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .ugc-heading {
+      font-size: 3rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "UGC Testimonials",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#111111"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Now over 3,800 women are following this routine"
+    },
+    {
+      "type": "text",
+      "id": "heading_emoji",
+      "label": "Emoji",
+      "default": "💖"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "UGC Image (Selfie / Product)"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Customer Quote",
+          "default": "This helped me control my night cravings."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author & Age",
+          "default": "Ananya S, 33"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "UGC Testimonials Grid",
+      "category": "High Conversion",
+      "blocks": [
+        { "type": "testimonial" },
+        { "type": "testimonial" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}
