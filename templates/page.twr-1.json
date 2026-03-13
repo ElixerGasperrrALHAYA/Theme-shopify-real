@@ -11,43 +11,6 @@
   "sections": {
     "main": {
       "type": "main-page",
-      "blocks": {
-        "heading": {
-          "type": "text",
-          "name": "Title",
-          "settings": {
-            "text": "<h1>{{ closest.page.title }}</h1>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "page-content": {
-          "type": "page-content",
-          "settings": {},
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "heading",
-        "page-content"
-      ],
       "settings": {
         "content_direction": "column",
         "gap": 32,
@@ -55,9 +18,48 @@
         "padding-block-start": 40,
         "padding-block-end": 80
       }
+    },
+    "twr_final_cta_7BQMN6": {
+      "type": "twr-final-cta",
+      "blocks": {
+        "trust_item_yCD7cc": {
+          "type": "trust_item",
+          "settings": {
+            "trust_icon": "🔒",
+            "trust_text": "Secure checkout"
+          }
+        },
+        "trust_item_ELWwft": {
+          "type": "trust_item",
+          "settings": {
+            "trust_icon": "✅",
+            "trust_text": "30-day guarantee"
+          }
+        },
+        "trust_item_7McHnA": {
+          "type": "trust_item",
+          "settings": {
+            "trust_icon": "⚡",
+            "trust_text": "Instant access"
+          }
+        }
+      },
+      "block_order": [
+        "trust_item_yCD7cc",
+        "trust_item_ELWwft",
+        "trust_item_7McHnA"
+      ],
+      "name": "TWR Final CTA",
+      "settings": {
+        "headline": "Your cravings are <em>predictable.</em><br>Which means they're beatable.",
+        "description": "You don't need more willpower. You need a better strategy for the right moments.",
+        "button_text": "Get My Three Window Reset — $27 →",
+        "button_link": ""
+      }
     }
   },
   "order": [
+    "twr_final_cta_7BQMN6",
     "main"
   ]
 }
