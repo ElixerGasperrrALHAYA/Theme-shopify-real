@@ -256,15 +256,15 @@
         "trust_item_pgcKKC": {
           "type": "trust_item",
           "settings": {
-            "trust_icon": "🔒",
-            "trust_text": "Secure checkout"
+            "trust_icon": "✅",
+            "trust_text": "30-day guarantee"
           }
         },
         "trust_item_PJhVK4": {
           "type": "trust_item",
           "settings": {
-            "trust_icon": "🔒",
-            "trust_text": "Secure checkout"
+            "trust_icon": "⚡",
+            "trust_text": "Instant access"
           }
         }
       },
