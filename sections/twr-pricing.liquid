@@ -18,9 +18,13 @@
           {% endfor %}
         </ul>
         
-        <a href="{{ section.settings.button_link }}" class="twr-cta-main twr-large">
+        <button 
+          type="button" 
+          class="twr-cta-main twr-large add-to-cart-drawer" 
+          data-variant-id="{{ section.settings.product.selected_or_first_available_variant.id | default: section.settings.variant_id }}"
+        >
           {{ section.settings.button_text }}
-        </a>
+        </button>
       </div>
       
       {% if section.settings.show_guarantee %}
@@ -35,6 +39,54 @@
     </div>
   </section>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Slow scroll for all .smooth-scroll links
+  document.querySelectorAll('.smooth-scroll').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Cart Drawer Trigger
+  document.querySelectorAll('.add-to-cart-drawer').forEach(button => {
+    button.addEventListener('click', async function() {
+      const variantId = this.dataset.variantId;
+      if (!variantId) {
+        alert('Please select a product in the section settings.');
+        return;
+      }
+      
+      try {
+        const response = await fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: [{ id: variantId, quantity: 1 }] })
+        });
+        
+        if (response.ok) {
+          if (window.ThemeCartDrawer) {
+            window.ThemeCartDrawer.open();
+          } else {
+            window.location.href = '/cart';
+          }
+        }
+      } catch (error) {
+        console.error('Error adding to cart:', error);
+      }
+    });
+  });
+});
+</script>
 
 {% schema %}
 {
@@ -95,9 +147,20 @@
       "default": "Get Instant Access — $27 →"
     },
     {
+      "type": "product",
+      "id": "product",
+      "label": "Main Product"
+    },
+    {
+      "type": "text",
+      "id": "variant_id",
+      "label": "Manual Variant ID (if not selecting product)",
+      "info": "Use this if you prefer to hardcode the ID"
+    },
+    {
       "type": "url",
       "id": "button_link",
-      "label": "Button Link"
+      "label": "Button Link (Fallback)"
     },
     {
       "type": "checkbox",

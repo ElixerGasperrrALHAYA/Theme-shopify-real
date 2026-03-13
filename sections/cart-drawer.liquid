@@ -58,6 +58,10 @@
         <button type="submit" name="checkout" class="cart-drawer-checkout-btn" style="--btn-bg: {{ section.settings.btn_color }}; --btn-text: {{ section.settings.btn_text_color }};">
           {{ section.settings.checkout_label | default: "Go to Checkout" }}
         </button>
+        
+        <div class="cart-drawer-dynamic-checkout">
+          {{ content_for_additional_checkout_buttons }}
+        </div>
       </form>
     </div>
   </div>

@@ -817,3 +817,10 @@
   .twr-price-main { font-size: 60px; }
   .twr-cta-main { padding: 18px 32px; font-size: 16px; }
 }
+
+.cart-drawer-dynamic-checkout {
+  margin-top: 12px;
+}
+.cart-drawer-dynamic-checkout [data-shopify-buttoncontainer] {
+  justify-content: center !important;
+}

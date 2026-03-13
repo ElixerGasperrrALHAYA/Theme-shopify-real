@@ -30,10 +30,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     {{ 'twr-styles.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
   </head>
 
   <body class="twr-wrapper">
     <!-- Standalone TWR layout - no global header or footer loaded by default -->
+    {% section 'cart-drawer' %}
+    
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
