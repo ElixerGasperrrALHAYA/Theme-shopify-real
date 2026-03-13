@@ -1,0 +1,68 @@
+{
+  "layout": "twr",
+  "wrapper": "main",
+  "sections": {
+    "urgency-bar": {
+      "type": "twr-urgency-bar",
+      "settings": {}
+    },
+    "hero": {
+      "type": "twr-hero",
+      "settings": {}
+    },
+    "agitation": {
+      "type": "twr-agitation",
+      "settings": {}
+    },
+    "mechanism": {
+      "type": "twr-mechanism",
+      "settings": {}
+    },
+    "whats_included": {
+      "type": "twr-whats-included",
+      "settings": {}
+    },
+    "reviews": {
+      "type": "twr-reviews",
+      "settings": {}
+    },
+    "about": {
+      "type": "twr-about",
+      "settings": {}
+    },
+    "upsell": {
+      "type": "twr-upsell",
+      "settings": {}
+    },
+    "pricing": {
+      "type": "twr-pricing",
+      "settings": {}
+    },
+    "faq": {
+      "type": "twr-faq",
+      "settings": {}
+    },
+    "final_cta": {
+      "type": "twr-final-cta",
+      "settings": {}
+    },
+    "footer": {
+      "type": "twr-footer",
+      "settings": {}
+    }
+  },
+  "order": [
+    "urgency-bar",
+    "hero",
+    "agitation",
+    "mechanism",
+    "whats_included",
+    "reviews",
+    "about",
+    "upsell",
+    "pricing",
+    "faq",
+    "final_cta",
+    "footer"
+  ]
+}
