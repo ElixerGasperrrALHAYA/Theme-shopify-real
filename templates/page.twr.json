@@ -13,51 +13,279 @@
   "sections": {
     "urgency-bar": {
       "type": "twr-urgency-bar",
-      "settings": {}
+      "settings": {
+        "text": "⏳ Launch price ends in",
+        "countdown_time": "19:47",
+        "sub_text": "Only 61 women have claimed the $27 price today"
+      }
     },
     "hero": {
       "type": "twr-hero",
-      "settings": {}
+      "settings": {
+        "pre_headline": "For women 35+ who are done white-knuckling their way through cravings",
+        "headline": "Finally — A <em>3-Minute Reset</em> That Shuts Down Cravings Before They Win",
+        "subheadline": "No willpower. No meal prep. No gym. Just three daily windows that rewire the moments your body tries to sabotage you.",
+        "social_proof_text": "4.9/5 · Trusted by <strong>4,200+ women</strong> across the US",
+        "button_text": "Yes — I Want My Three Window Reset →",
+        "button_link": "",
+        "price_note": "Only <strong>$27 today</strong>  ·  <s>Regular price $67</s>  ·  Instant digital access"
+      }
     },
     "agitation": {
       "type": "twr-agitation",
-      "settings": {}
+      "settings": {
+        "section_label": "Sound familiar?",
+        "headline": "You're Not Weak. Your Body Is Fighting You at the Wrong Times.",
+        "intro_paragraphs": "<p>You've been eating better. You've been trying. And then <strong>3pm hits</strong> — and something in you just breaks. The crackers. The chocolate. The \"just a little\" that turns into a lot.</p><p>It's not a character flaw. It's biology. After 35, your hormones shift in ways that make certain moments of the day <strong>almost impossible to navigate without a strategy</strong>. And nobody ever gave you that strategy.</p>",
+        "outro_paragraph": "<p>Here's the truth: <strong>Cravings aren't random.</strong> They follow a pattern. And once you know the three moments they strike — and what to do in each one — everything changes.</p>"
+      }
     },
     "mechanism": {
       "type": "twr-mechanism",
-      "settings": {}
+      "settings": {
+        "section_label": "The Method",
+        "headline": "Introducing the <em>Three Window Reset</em>",
+        "subheadline": "A 3-minute daily routine built around the three specific windows of the day where cravings are biologically hardwired to hit women over 35 the hardest."
+      }
     },
     "whats_included": {
       "type": "twr-whats-included",
-      "settings": {}
+      "settings": {
+        "section_label": "What You Get",
+        "headline": "Everything You Need to Own Your Day",
+        "subheadline": "Three simple tools. One complete system. Instant access.",
+        "bullet_1": "Designed specifically for women 35+ and hormonal shifts",
+        "bullet_2": "No restrictive diets or elimination plans required",
+        "bullet_3": "Works alongside any eating plan you're already following",
+        "bullet_4": "Each reset takes 3 minutes or less",
+        "bullet_5": "Instant digital download — start within minutes"
+      }
     },
     "reviews": {
       "type": "twr-reviews",
-      "settings": {}
+      "blocks": {
+        "review_kRAHRK": {
+          "type": "review",
+          "settings": {
+            "review_text": "",
+            "reviewer_name": "",
+            "reviewer_detail": ""
+          }
+        },
+        "review_JwqcUt": {
+          "type": "review",
+          "settings": {
+            "review_text": "",
+            "reviewer_name": "",
+            "reviewer_detail": ""
+          }
+        },
+        "review_nTMjnP": {
+          "type": "review",
+          "settings": {
+            "review_text": "",
+            "reviewer_name": "",
+            "reviewer_detail": ""
+          }
+        },
+        "review_NpUyiX": {
+          "type": "review",
+          "settings": {
+            "review_text": "",
+            "reviewer_name": "",
+            "reviewer_detail": ""
+          }
+        },
+        "review_PJ3jRq": {
+          "type": "review",
+          "settings": {
+            "review_text": "",
+            "reviewer_name": "",
+            "reviewer_detail": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_kRAHRK",
+        "review_JwqcUt",
+        "review_nTMjnP",
+        "review_NpUyiX",
+        "review_PJ3jRq"
+      ],
+      "settings": {
+        "section_label": "Real Women. Real Results.",
+        "headline": "Over 4,200 Women Have Already Reset Their Cravings",
+        "subheadline": "Here's what they're saying after just a few weeks",
+        "big_number": "4,200+",
+        "big_number_sub": "women across the US have used the Three Window Reset"
+      }
     },
     "about": {
       "type": "twr-about",
-      "settings": {}
-    },
-    "upsell": {
-      "type": "twr-upsell",
-      "settings": {}
+      "settings": {
+        "section_label": "Why This Exists",
+        "headline": "I Created This Because I Was You",
+        "content": "<p>At 41, I was doing \"everything right\" — eating clean, exercising, drinking my water. And I still couldn't get through the day without a 3pm crash that ended in a gas station snack run.</p><p>I spent two years obsessing over the research on cortisol, insulin, and the specific hormonal shifts that happen to women in their 30s and 40s. What I found changed everything: <strong>cravings aren't random. They're predictable. And they're preventable</strong> — but only if you address them at the right moments.</p><p>The Three Window Reset is what I built for myself. I'm sharing it with you for $27 because I believe every woman deserves to stop fighting her own body.</p>"
+      }
     },
     "pricing": {
       "type": "twr-pricing",
-      "settings": {}
+      "blocks": {
+        "include_item_DYPDGU": {
+          "type": "include_item",
+          "settings": {
+            "list_item": "Three Window Reset — Main Guide (PDF)"
+          }
+        },
+        "include_item_c78wan": {
+          "type": "include_item",
+          "settings": {
+            "list_item": "Quick Reference Card (print-ready)"
+          }
+        },
+        "include_item_BDm9pm": {
+          "type": "include_item",
+          "settings": {
+            "list_item": "Craving Emergency Script"
+          }
+        },
+        "include_item_HEAAGd": {
+          "type": "include_item",
+          "settings": {
+            "list_item": "Instant download — access in 2 minutes"
+          }
+        },
+        "include_item_6ataMn": {
+          "type": "include_item",
+          "settings": {
+            "list_item": "Works on phone, tablet, or computer"
+          }
+        }
+      },
+      "block_order": [
+        "include_item_DYPDGU",
+        "include_item_c78wan",
+        "include_item_BDm9pm",
+        "include_item_HEAAGd",
+        "include_item_6ataMn"
+      ],
+      "settings": {
+        "section_label": "Get Instant Access Today",
+        "headline": "Start Your First Reset Today",
+        "subheadline": "One small decision. Three daily windows. Everything changes.",
+        "price_cross": "$67 regular price",
+        "currency": "$",
+        "price": "27",
+        "price_suffix": "/one-time",
+        "price_desc": "Full access. No subscriptions. No hidden fees.",
+        "button_text": "Get Instant Access — $27 →",
+        "button_link": "",
+        "show_guarantee": true,
+        "guarantee_title": "30-Day Money Back Guarantee",
+        "guarantee_text": "Try it for 30 days. If you don't feel a difference in how you handle cravings, email us and we'll refund every penny. No questions, no hassle."
+      }
     },
     "faq": {
       "type": "twr-faq",
-      "settings": {}
+      "blocks": {
+        "faq_Jm4GeC": {
+          "type": "faq",
+          "settings": {
+            "question": "Will this work if I've tried everything?",
+            "answer": "Most programs fail because they treat cravings as a willpower problem. The Three Window Reset treats them as a timing and biology problem — which is what they actually are. If you've tried diets and supplements without addressing the specific windows where your body is vulnerable, you haven't tried this."
+          }
+        },
+        "faq_XPhedp": {
+          "type": "faq",
+          "settings": {
+            "question": "I'm over 50. Is this still for me?",
+            "answer": "Absolutely. The three craving windows become even more pronounced post-menopause. Many of our most enthusiastic users are in their 50s and 60s. The biology addressed applies across all stages."
+          }
+        },
+        "faq_QRkUzC": {
+          "type": "faq",
+          "settings": {
+            "question": "Do I have to change my diet to see results?",
+            "answer": "No. The Three Window Reset works alongside whatever eating approach you already follow. The goal is to stop the out-of-control moments, not add another restrictive protocol to your life."
+          }
+        },
+        "faq_NmMTdP": {
+          "type": "faq",
+          "settings": {
+            "question": "What exactly do I get and how do I access it?",
+            "answer": "Three digital files: the main guide (PDF), the Quick Reference Card, and the Craving Emergency Script. After purchase you get an email with instant download links. Works on any device within minutes."
+          }
+        },
+        "faq_8RxHak": {
+          "type": "faq",
+          "settings": {
+            "question": "What if it doesn't work for me?",
+            "answer": "You're covered by our 30-day money-back guarantee. Try the resets for a month. If you don't feel a meaningful difference, email us for a full refund — no questions asked."
+          }
+        },
+        "faq_MMYf8f": {
+          "type": "faq",
+          "settings": {
+            "question": "How is this different from a meal plan or diet guide?",
+            "answer": "Completely different. This isn't about what you eat — it's about when and how you interrupt the biological triggers that make you eat things you don't want to eat. No food tracking, no calorie counting, no restrictions."
+          }
+        }
+      },
+      "block_order": [
+        "faq_Jm4GeC",
+        "faq_XPhedp",
+        "faq_QRkUzC",
+        "faq_NmMTdP",
+        "faq_8RxHak",
+        "faq_MMYf8f"
+      ],
+      "settings": {
+        "headline": "You Might Be Wondering…"
+      }
     },
     "final_cta": {
       "type": "twr-final-cta",
-      "settings": {}
+      "blocks": {
+        "trust_item_QXpCPH": {
+          "type": "trust_item",
+          "settings": {
+            "trust_icon": "🔒",
+            "trust_text": "Secure checkout"
+          }
+        },
+        "trust_item_pgcKKC": {
+          "type": "trust_item",
+          "settings": {
+            "trust_icon": "🔒",
+            "trust_text": "Secure checkout"
+          }
+        },
+        "trust_item_PJhVK4": {
+          "type": "trust_item",
+          "settings": {
+            "trust_icon": "🔒",
+            "trust_text": "Secure checkout"
+          }
+        }
+      },
+      "block_order": [
+        "trust_item_QXpCPH",
+        "trust_item_pgcKKC",
+        "trust_item_PJhVK4"
+      ],
+      "settings": {
+        "headline": "Your cravings are <em>predictable.</em><br>Which means they're beatable.",
+        "description": "You don't need more willpower. You need a better strategy for the right moments.",
+        "button_text": "Get My Three Window Reset — $27 →",
+        "button_link": ""
+      }
     },
     "footer": {
       "type": "twr-footer",
-      "settings": {}
+      "settings": {
+        "copyright_name": "Three Window Reset",
+        "disclaimer": "Results may vary. This product is for informational purposes only and is not intended to diagnose, treat, cure, or prevent any disease. Always consult your healthcare provider."
+      }
     }
   },
   "order": [
@@ -68,7 +296,6 @@
     "whats_included",
     "reviews",
     "about",
-    "upsell",
     "pricing",
     "faq",
     "final_cta",
