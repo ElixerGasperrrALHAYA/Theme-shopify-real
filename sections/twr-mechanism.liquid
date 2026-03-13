@@ -1,0 +1,114 @@
+{{ 'twr-styles.css' | asset_url | stylesheet_tag }}
+
+<div class="twr-wrapper">
+  <section class="twr-mechanism">
+    <div class="twr-mechanism-inner">
+      <div class="twr-section-label">{{ section.settings.section_label }}</div>
+      <h2>{{ section.settings.headline }}</h2>
+      <p>{{ section.settings.subheadline }}</p>
+      
+      <div class="twr-windows-grid">
+        {% for block in section.blocks %}
+          <div class="twr-window-card">
+            <div class="twr-window-number">{{ block.settings.number }}</div>
+            <div class="twr-window-time">{{ block.settings.time }}</div>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.description }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "TWR Mechanism",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "The Method"
+    },
+    {
+      "type": "html",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Introducing the <em>Three Window Reset</em>"
+    },
+    {
+      "type": "textarea",
+      "id": "subheadline",
+      "label": "Sub Headline",
+      "default": "A 3-minute daily routine built around the three specific windows of the day where cravings are biologically hardwired to hit women over 35 the hardest."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "window",
+      "name": "Window Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number",
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "time",
+          "label": "Time / Label",
+          "default": "6am – 9am · Morning Window"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "The Morning Lock-In"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "High cortisol right after waking triggers sugar cravings before you've had breakfast. This 3-minute reset programs your hunger hormones for the entire day — in minutes, not hours."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TWR Mechanism",
+      "blocks": [
+        {
+          "type": "window",
+          "settings": {
+            "number": "1",
+            "time": "6am – 9am · Morning Window",
+            "title": "The Morning Lock-In",
+            "description": "High cortisol right after waking triggers sugar cravings before you've had breakfast. This 3-minute reset programs your hunger hormones for the entire day — in minutes, not hours."
+          }
+        },
+        {
+          "type": "window",
+          "settings": {
+            "number": "2",
+            "time": "2pm – 4pm · Afternoon Window",
+            "title": "The Crash Override",
+            "description": "The most dangerous window for women 35+. Your blood sugar dips, your energy tanks, and your brain screams for quick fuel. The reset interrupts the craving cycle before it takes over."
+          }
+        },
+        {
+          "type": "window",
+          "settings": {
+            "number": "3",
+            "time": "8pm – 11pm · Night Window",
+            "title": "The Night Shutdown",
+            "description": "Accumulated stress plus habit plus boredom creates the perfect storm. This final reset closes the loop on your day so you wake up feeling in control — not guilty."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

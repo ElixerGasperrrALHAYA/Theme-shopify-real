@@ -1,0 +1,170 @@
+{{ 'twr-styles.css' | asset_url | stylesheet_tag }}
+
+<div class="twr-wrapper">
+  <section class="twr-whats-included">
+    <div class="twr-included-inner">
+      <div class="twr-section-label">{{ section.settings.section_label }}</div>
+      <h2>{{ section.settings.headline }}</h2>
+      <p class="twr-subtitle">{{ section.settings.subheadline }}</p>
+      
+      <div class="twr-product-cards">
+        {% for block in section.blocks %}
+          <div class="twr-product-card {% if block.settings.featured %}twr-featured{% endif %}">
+            {% if block.settings.badge_text != blank %}
+              <div class="twr-badge">{{ block.settings.badge_text }}</div>
+            {% endif %}
+            <div class="twr-product-icon">{{ block.settings.icon }}</div>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.description }}</p>
+            <div class="twr-product-value">{{ block.settings.value_text }}</div>
+          </div>
+        {% endfor %}
+      </div>
+      
+      <ul class="twr-bullets-list">
+        {% if section.settings.bullet_1 != blank %}<li>{{ section.settings.bullet_1 }}</li>{% endif %}
+        {% if section.settings.bullet_2 != blank %}<li>{{ section.settings.bullet_2 }}</li>{% endif %}
+        {% if section.settings.bullet_3 != blank %}<li>{{ section.settings.bullet_3 }}</li>{% endif %}
+        {% if section.settings.bullet_4 != blank %}<li>{{ section.settings.bullet_4 }}</li>{% endif %}
+        {% if section.settings.bullet_5 != blank %}<li>{{ section.settings.bullet_5 }}</li>{% endif %}
+      </ul>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "TWR What's Included",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "What You Get"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Everything You Need to Own Your Day"
+    },
+    {
+      "type": "text",
+      "id": "subheadline",
+      "label": "Sub Headline",
+      "default": "Three simple tools. One complete system. Instant access."
+    },
+    {
+      "type": "text",
+      "id": "bullet_1",
+      "label": "Bullet Point 1",
+      "default": "Designed specifically for women 35+ and hormonal shifts"
+    },
+    {
+      "type": "text",
+      "id": "bullet_2",
+      "label": "Bullet Point 2",
+      "default": "No restrictive diets or elimination plans required"
+    },
+    {
+      "type": "text",
+      "id": "bullet_3",
+      "label": "Bullet Point 3",
+      "default": "Works alongside any eating plan you're already following"
+    },
+    {
+      "type": "text",
+      "id": "bullet_4",
+      "label": "Bullet Point 4",
+      "default": "Each reset takes 3 minutes or less"
+    },
+    {
+      "type": "text",
+      "id": "bullet_5",
+      "label": "Bullet Point 5",
+      "default": "Instant digital download — start within minutes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "featured",
+          "label": "Featured Layout",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text (if featured)"
+        },
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Emoji/Icon",
+          "default": "📖"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Three Window Reset — Main Guide"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "The complete step-by-step PDF. Understand the science behind each window, get the exact 3-minute routine for each one, and start today. Written in plain English — no fluff, no filler."
+        },
+        {
+          "type": "html",
+          "id": "value_text",
+          "label": "Value Info HTML",
+          "default": "Value: <s>$47</s> → Included"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TWR What's Included",
+      "blocks": [
+        {
+          "type": "product",
+          "settings": {
+            "featured": true,
+            "badge_text": "Core Guide",
+            "icon": "📖",
+            "title": "Three Window Reset — Main Guide",
+            "description": "The complete step-by-step PDF. Understand the science behind each window, get the exact 3-minute routine for each one, and start today. Written in plain English — no fluff, no filler.",
+            "value_text": "Value: <s>$47</s> → Included"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "featured": false,
+            "icon": "🗒️",
+            "title": "Quick Reference Card",
+            "description": "One single sheet with your three daily resets. Print it. Put it on your fridge. No excuses, no searching — everything you need at a glance.",
+            "value_text": "Value: <s>$17</s> → Included"
+          }
+        },
+        {
+          "type": "product",
+          "settings": {
+            "featured": false,
+            "icon": "🚨",
+            "title": "Craving Emergency Script",
+            "description": "For the moments the craving already hit you. A step-by-step script for what to do in the next 90 seconds to shut it down without giving in. Your secret weapon for hard days.",
+            "value_text": "Value: <s>$27</s> → Included"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

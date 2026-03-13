@@ -1,0 +1,73 @@
+{{ 'twr-styles.css' | asset_url | stylesheet_tag }}
+
+<div class="twr-wrapper">
+  <section class="twr-faq">
+    <div class="twr-faq-inner">
+      <h2>{{ section.settings.headline }}</h2>
+
+      {% for block in section.blocks %}
+        <div class="twr-faq-item">
+          <div class="twr-faq-question">{{ block.settings.question }} <span class="twr-faq-toggle">+</span></div>
+          <div class="twr-faq-answer">{{ block.settings.answer }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const faqItems = document.querySelectorAll('.twr-faq-item');
+  faqItems.forEach(item => {
+    item.addEventListener('click', () => {
+      faqItems.forEach(i => { if(i !== item) i.classList.remove('open'); });
+      item.classList.toggle('open');
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "TWR FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "You Might Be Wondering…"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TWR FAQ",
+      "blocks": [
+        { "type": "faq", "settings": { "question": "Will this actually work for me if I've tried everything?", "answer": "Most programs fail because they treat cravings as a willpower problem. The Three Window Reset treats them as a timing and biology problem — which is what they actually are. If you've tried diets and supplements without addressing the specific windows where your body is vulnerable, you haven't tried this." } },
+        { "type": "faq", "settings": { "question": "I'm over 50. Is this still for me?", "answer": "Absolutely. The three craving windows become even more pronounced post-menopause due to additional hormonal shifts. Many of our most enthusiastic users are in their 50s and 60s. The biology addressed in this guide applies across all stages." } },
+        { "type": "faq", "settings": { "question": "Do I have to change my diet to see results?", "answer": "No. The Three Window Reset is designed to work alongside whatever eating approach you already follow — or no particular eating plan at all. The goal is to stop the out-of-control moments, not to add another restrictive eating protocol to your life." } },
+        { "type": "faq", "settings": { "question": "What exactly do I get and how do I access it?", "answer": "You get three digital files: the main guide (PDF), the Quick Reference Card (print-ready PDF), and the Craving Emergency Script (PDF). After purchase, you receive an email with instant download links. You can access everything on your phone, tablet, or computer within minutes." } },
+        { "type": "faq", "settings": { "question": "What if it doesn't work for me?", "answer": "You're fully covered by our 30-day money-back guarantee. Try the resets for 30 days. If you don't notice a meaningful difference in your cravings and your sense of control, email us for a full refund — no questions asked." } },
+        { "type": "faq", "settings": { "question": "How is this different from a regular meal plan or diet guide?", "answer": "It's completely different. This isn't about what you eat — it's about when and how you interrupt the biological triggers that make you eat things you don't want to eat. The Three Window Reset takes 3 minutes per window and requires no food tracking, no calorie counting, and no restrictive eating of any kind." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

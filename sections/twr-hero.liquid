@@ -1,0 +1,116 @@
+{{ 'twr-styles.css' | asset_url | stylesheet_tag }}
+
+<div class="twr-wrapper">
+  <section class="twr-hero">
+    {% if section.settings.pre_headline != blank %}
+      <div class="twr-pre-headline">{{ section.settings.pre_headline }}</div>
+    {% endif %}
+    
+    <h1>{{ section.settings.headline }}</h1>
+    
+    <p class="twr-hero-sub">{{ section.settings.subheadline }}</p>
+
+    <div class="twr-social-proof-bar">
+      <div class="twr-avatar-stack">
+        <div class="twr-avatar">👩</div>
+        <div class="twr-avatar">👩</div>
+        <div class="twr-avatar">👩</div>
+        <div class="twr-avatar">👩</div>
+        <div class="twr-avatar">👩</div>
+      </div>
+      <div class="twr-stars">★★★★★</div>
+      <div class="twr-proof-text">{{ section.settings.social_proof_text }}</div>
+    </div>
+
+    <a href="{{ section.settings.button_link }}" class="twr-cta-main">
+      {{ section.settings.button_text }}
+    </a>
+    
+    <p class="twr-price-note">{{ section.settings.price_note }}</p>
+    
+    <div class="twr-trust-row">
+      {% for block in section.blocks %}
+        <span class="twr-trust-item">{{ block.settings.trust_icon }} {{ block.settings.trust_text }}</span>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "TWR Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "pre_headline",
+      "label": "Pre Headline",
+      "default": "For women 35+ who are done white-knuckling their way through cravings"
+    },
+    {
+      "type": "html",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Finally — A <em>3-Minute Reset</em> That Shuts Down Cravings Before They Win"
+    },
+    {
+      "type": "textarea",
+      "id": "subheadline",
+      "label": "Sub Headline",
+      "default": "No willpower. No meal prep. No gym. Just three daily windows that rewire the moments your body tries to sabotage you."
+    },
+    {
+      "type": "html",
+      "id": "social_proof_text",
+      "label": "Social Proof Text",
+      "default": "4.9/5 · Trusted by <strong>4,200+ women</strong> across the US"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Yes — I Want My Three Window Reset →"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "html",
+      "id": "price_note",
+      "label": "Price Note (HTML)",
+      "default": "Only <strong>$27 today</strong> &nbsp;·&nbsp; <s>Regular price $67</s> &nbsp;·&nbsp; Instant digital access"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "trust_icon",
+          "label": "Emoji/Icon",
+          "default": "🔒"
+        },
+        {
+          "type": "text",
+          "id": "trust_text",
+          "label": "Text",
+          "default": "Secure checkout"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TWR Hero",
+      "blocks": [
+        { "type": "trust_item", "settings": { "trust_icon": "🔒", "trust_text": "Secure checkout" } },
+        { "type": "trust_item", "settings": { "trust_icon": "💳", "trust_text": "One-time payment" } },
+        { "type": "trust_item", "settings": { "trust_icon": "✅", "trust_text": "30-day money back" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

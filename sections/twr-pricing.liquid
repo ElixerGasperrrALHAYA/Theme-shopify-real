@@ -1,0 +1,147 @@
+{{ 'twr-styles.css' | asset_url | stylesheet_tag }}
+
+<div class="twr-wrapper">
+  <section class="twr-pricing" id="buy">
+    <div class="twr-pricing-inner">
+      <div class="twr-section-label">{{ section.settings.section_label }}</div>
+      <h2>{{ section.settings.headline }}</h2>
+      <p class="twr-pricing-sub">{{ section.settings.subheadline }}</p>
+      
+      <div class="twr-price-box">
+        <div class="twr-price-cross">{{ section.settings.price_cross }}</div>
+        <div class="twr-price-main"><sup>{{ section.settings.currency }}</sup>{{ section.settings.price }}<sub>{{ section.settings.price_suffix }}</sub></div>
+        <div class="twr-price-desc">{{ section.settings.price_desc }}</div>
+        
+        <ul class="twr-price-includes">
+          {% for block in section.blocks %}
+            <li>{{ block.settings.list_item }}</li>
+          {% endfor %}
+        </ul>
+        
+        <a href="{{ section.settings.button_link }}" class="twr-cta-main twr-large">
+          {{ section.settings.button_text }}
+        </a>
+      </div>
+      
+      {% if section.settings.show_guarantee %}
+      <div class="twr-guarantee">
+        <div class="twr-guarantee-icon">🛡️</div>
+        <div class="twr-guarantee-text">
+          <h4>{{ section.settings.guarantee_title }}</h4>
+          <p>{{ section.settings.guarantee_text }}</p>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "TWR Pricing",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "Get Instant Access Today"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Start Your First Reset Today"
+    },
+    {
+      "type": "text",
+      "id": "subheadline",
+      "label": "Sub Headline",
+      "default": "One small decision. Three daily windows. Everything changes."
+    },
+    {
+      "type": "text",
+      "id": "price_cross",
+      "label": "Crossed Price",
+      "default": "$67 regular price"
+    },
+    {
+      "type": "text",
+      "id": "currency",
+      "label": "Currency Symbol",
+      "default": "$"
+    },
+    {
+      "type": "text",
+      "id": "price",
+      "label": "Price",
+      "default": "27"
+    },
+    {
+      "type": "text",
+      "id": "price_suffix",
+      "label": "Price Suffix",
+      "default": "/one-time"
+    },
+    {
+      "type": "text",
+      "id": "price_desc",
+      "label": "Price Description",
+      "default": "Full access. No subscriptions. No hidden fees."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Get Instant Access — $27 →"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_guarantee",
+      "label": "Show Guarantee",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "guarantee_title",
+      "label": "Guarantee Title",
+      "default": "30-Day Money Back Guarantee"
+    },
+    {
+      "type": "textarea",
+      "id": "guarantee_text",
+      "label": "Guarantee Text",
+      "default": "Try it for 30 days. If you don't feel a difference in how you handle cravings, email us and we'll refund every penny. No questions, no hassle."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "include_item",
+      "name": "Included Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "list_item",
+          "label": "Item Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TWR Pricing",
+      "blocks": [
+        { "type": "include_item", "settings": { "list_item": "Three Window Reset — Main Guide (PDF)" } },
+        { "type": "include_item", "settings": { "list_item": "Quick Reference Card (print-ready)" } },
+        { "type": "include_item", "settings": { "list_item": "Craving Emergency Script" } },
+        { "type": "include_item", "settings": { "list_item": "Instant download — access in 2 minutes" } },
+        { "type": "include_item", "settings": { "list_item": "Works on phone, tablet, or computer" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

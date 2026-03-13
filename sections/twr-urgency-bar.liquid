@@ -1,0 +1,62 @@
+{{ 'twr-styles.css' | asset_url | stylesheet_tag }}
+
+<div class="twr-wrapper">
+  <div class="twr-urgency-bar">
+    {{ section.settings.text | escape }}
+    <span id="countdown">{{ section.settings.countdown_time }}</span> —
+    <span>{{ section.settings.sub_text | escape }}</span>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  let timeStr = "{{ section.settings.countdown_time | escape }}";
+  let parts = timeStr.split(":");
+  if(parts.length < 2) return;
+  
+  let m = parseInt(parts[0], 10);
+  let s = parseInt(parts[1], 10);
+  let total = m * 60 + s;
+  
+  function tick() {
+    let min = Math.floor(total / 60).toString().padStart(2, '0');
+    let sec = (total % 60).toString().padStart(2, '0');
+    document.getElementById('countdown').textContent = min + ':' + sec;
+    if (total > 0) total--;
+  }
+  
+  tick();
+  setInterval(tick, 1000);
+});
+</script>
+
+{% schema %}
+{
+  "name": "TWR Urgency Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Main Text",
+      "default": "⏳ Launch price ends in "
+    },
+    {
+      "type": "text",
+      "id": "countdown_time",
+      "label": "Countdown Time (MM:SS)",
+      "default": "19:47"
+    },
+    {
+      "type": "text",
+      "id": "sub_text",
+      "label": "Secondary Text",
+      "default": "Only 61 women have claimed the $27 price today"
+    }
+  ],
+  "presets": [
+    {
+      "name": "TWR Urgency Bar"
+    }
+  ]
+}
+{% endschema %}

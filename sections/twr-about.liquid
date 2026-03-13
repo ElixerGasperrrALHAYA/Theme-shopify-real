@@ -1,0 +1,45 @@
+{{ 'twr-styles.css' | asset_url | stylesheet_tag }}
+
+<div class="twr-wrapper">
+  <section class="twr-about">
+    <div class="twr-about-inner">
+      <div class="twr-section-label">{{ section.settings.section_label }}</div>
+      <h2>{{ section.settings.headline }}</h2>
+      
+      <div class="twr-about-content">
+        {{ section.settings.content }}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "TWR About",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "Why This Exists"
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "I Created This Because I Was You"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>At 41, I was doing \"everything right\" — eating clean, exercising, drinking my water. And I still couldn't get through the day without a 3pm crash that ended in a gas station snack run.</p><p>I spent two years obsessing over the research on cortisol, insulin, and the specific hormonal shifts that happen to women in their 30s and 40s. What I found changed everything: <strong>cravings aren't random. They're predictable. And they're preventable</strong> — but only if you address them at the right moments.</p><p>The Three Window Reset is what I built for myself. I'm sharing it with you for $27 because I believe every woman deserves to stop fighting her own body.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "TWR About"
+    }
+  ]
+}
+{% endschema %}

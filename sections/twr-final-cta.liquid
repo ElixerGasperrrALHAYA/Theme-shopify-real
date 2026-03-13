@@ -1,0 +1,79 @@
+{{ 'twr-styles.css' | asset_url | stylesheet_tag }}
+
+<div class="twr-wrapper">
+  <section class="twr-final-cta">
+    <h2>{{ section.settings.headline }}</h2>
+    <p>{{ section.settings.description }}</p>
+    
+    <a href="{{ section.settings.button_link }}" class="twr-cta-main">
+      {{ section.settings.button_text }}
+    </a>
+    
+    <div class="twr-trust-row" style="margin-top:18px; justify-content:center;">
+      {% for block in section.blocks %}
+        <span class="twr-trust-item">{{ block.settings.trust_icon }} {{ block.settings.trust_text }}</span>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "TWR Final CTA",
+  "settings": [
+    {
+      "type": "html",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Your cravings are <em>predictable.</em><br>Which means they're beatable."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "You don't need more willpower. You need a better strategy for the right moments."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Get My Three Window Reset — $27 →"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "trust_icon",
+          "label": "Emoji/Icon",
+          "default": "🔒"
+        },
+        {
+          "type": "text",
+          "id": "trust_text",
+          "label": "Text",
+          "default": "Secure checkout"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TWR Final CTA",
+      "blocks": [
+        { "type": "trust_item", "settings": { "trust_icon": "🔒", "trust_text": "Secure checkout" } },
+        { "type": "trust_item", "settings": { "trust_icon": "✅", "trust_text": "30-day guarantee" } },
+        { "type": "trust_item", "settings": { "trust_icon": "⚡", "trust_text": "Instant access" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

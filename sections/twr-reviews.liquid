@@ -1,0 +1,104 @@
+{{ 'twr-styles.css' | asset_url | stylesheet_tag }}
+
+<div class="twr-wrapper">
+  <section class="twr-reviews">
+    <div class="twr-reviews-inner">
+      <div class="twr-section-label">{{ section.settings.section_label }}</div>
+      <h2>{{ section.settings.headline }}</h2>
+      <p class="twr-subtitle">{{ section.settings.subheadline }}</p>
+      
+      <div class="twr-big-number">{{ section.settings.big_number }}</div>
+      <div class="twr-big-number-sub">{{ section.settings.big_number_sub }}</div>
+      
+      <div class="twr-reviews-grid">
+        {% for block in section.blocks %}
+          <div class="twr-review-card">
+            <div class="twr-review-stars">★★★★★</div>
+            <p class="twr-review-text">"{{ block.settings.review_text }}"</p>
+            <div class="twr-reviewer">
+              <div class="twr-reviewer-avatar">👩</div>
+              <div>
+                <div class="twr-reviewer-name">{{ block.settings.reviewer_name }}</div>
+                <div class="twr-reviewer-detail">{{ block.settings.reviewer_detail }}</div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "TWR Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "Real Women. Real Results."
+    },
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Over 4,200 Women Have Already Reset Their Cravings"
+    },
+    {
+      "type": "text",
+      "id": "subheadline",
+      "label": "Sub Headline",
+      "default": "Here's what they're saying after just a few weeks"
+    },
+    {
+      "type": "text",
+      "id": "big_number",
+      "label": "Big Number",
+      "default": "4,200+"
+    },
+    {
+      "type": "text",
+      "id": "big_number_sub",
+      "label": "Big Number Subtext",
+      "default": "women across the US have used the Three Window Reset"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review Text"
+        },
+        {
+          "type": "text",
+          "id": "reviewer_name",
+          "label": "Reviewer Name"
+        },
+        {
+          "type": "text",
+          "id": "reviewer_detail",
+          "label": "Reviewer Detail"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TWR Reviews",
+      "blocks": [
+        { "type": "review", "settings": { "review_text": "I was skeptical because I've tried EVERYTHING. But the afternoon window reset changed something. I haven't raided the pantry at 3pm in three weeks. Three. Weeks.", "reviewer_name": "Sandra M.", "reviewer_detail": "42, Texas · Lost 9 lbs in 5 weeks" } },
+        { "type": "review", "settings": { "review_text": "The night shutdown ritual is everything. I used to eat my feelings every single night after the kids went to bed. Not anymore. This is the first thing that actually addressed the WHY.", "reviewer_name": "Patricia L.", "reviewer_detail": "48, Ohio · 6 weeks in" } },
+        { "type": "review", "settings": { "review_text": "I put the Quick Reference Card on my fridge and honestly that alone made a difference. I look at it every morning. Simple. Clear. No guilt trips. Just a plan.", "reviewer_name": "Karen T.", "reviewer_detail": "39, Florida" } },
+        { "type": "review", "settings": { "review_text": "I've spent hundreds on programs that shamed me into trying. This one explained why my body was working against me. Once I understood it, I stopped blaming myself and started winning.", "reviewer_name": "Michelle R.", "reviewer_detail": "53, California · Down 14 lbs" } },
+        { "type": "review", "settings": { "review_text": "The Craving Emergency Script saved me twice this week. Twice. I had it open on my phone and just followed the steps. I can't believe $27 did what $300 programs couldn't.", "reviewer_name": "Deborah K.", "reviewer_detail": "46, New York" } },
+        { "type": "review", "settings": { "review_text": "My doctor noticed the change before I even told her I was doing anything different. My glucose levels improved, my energy is steadier, and I feel like myself again for the first time in years.", "reviewer_name": "Linda C.", "reviewer_detail": "57, Georgia · 8 weeks in" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

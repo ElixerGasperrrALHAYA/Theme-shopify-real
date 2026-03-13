@@ -1,0 +1,78 @@
+{{ 'twr-styles.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .twr-footer {
+    background: var(--twr-deep, #1C1209);
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    font-family: 'DM Sans', sans-serif;
+  }
+  .twr-footer a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  .twr-footer-disclaimer {
+    margin-top: 8px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+
+<div class="twr-wrapper">
+  <footer class="twr-footer">
+    <p>© {{ 'now' | date: "%Y" }} {{ section.settings.copyright_name }}
+      {% for block in section.blocks %}
+        · <a href="{{ block.settings.link }}">{{ block.settings.label }}</a>
+      {% endfor %}
+    </p>
+    <p class="twr-footer-disclaimer">{{ section.settings.disclaimer }}</p>
+  </footer>
+</div>
+
+{% schema %}
+{
+  "name": "TWR Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "copyright_name",
+      "label": "Copyright Name",
+      "default": "Three Window Reset"
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "Results may vary. This product is for informational purposes only and is not intended to diagnose, treat, cure, or prevent any disease. Always consult your healthcare provider."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TWR Footer",
+      "blocks": [
+        { "type": "link", "settings": { "label": "Privacy Policy" } },
+        { "type": "link", "settings": { "label": "Terms" } },
+        { "type": "link", "settings": { "label": "Contact" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

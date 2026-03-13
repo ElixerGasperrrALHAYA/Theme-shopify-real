@@ -1,0 +1,71 @@
+{{ 'twr-styles.css' | asset_url | stylesheet_tag }}
+
+<div class="twr-wrapper">
+  <section class="twr-upsell">
+    <div class="twr-upsell-inner">
+      <h3>{{ section.settings.headline }}</h3>
+      <p>{{ section.settings.description }}</p>
+      
+      <div class="twr-upsell-options">
+        {% for block in section.blocks %}
+          <a href="{{ block.settings.button_link }}" class="twr-upsell-btn {% if block.settings.is_primary %}twr-primary{% else %}twr-secondary{% endif %}">
+            {{ block.settings.button_text }}
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "TWR Upsell",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Want to Go Deeper?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Add personal accountability or a natural supplement that works with your Three Window Reset for faster, more lasting results."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_primary",
+          "label": "Primary Style",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TWR Upsell",
+      "blocks": [
+        { "type": "button", "settings": { "button_text": "+ Add Natural Supplement", "is_primary": false } },
+        { "type": "button", "settings": { "button_text": "+ Add WhatsApp Coaching — $290", "is_primary": true } }
+      ]
+    }
+  ]
+}
+{% endschema %}
